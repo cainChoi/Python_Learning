@@ -1,4 +1,5 @@
 import socket
+import TransData
 
 HOST = '127.0.0.1'
 BIND_PORT = 65333
@@ -19,7 +20,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as bind_socket:
 
                 #msg_from_client = "Hello Server from client"
                 #bytes_to_send = str.encode(msg_from_client)
-                send_socket.sendto(msg, addr)
-            except BlockingIOError:
+
+                
+                send_socket.sendto(TransData.DataShift(msg), addr)
+
+
+            except BlockingIOError:#이 구문이 없으면 오류로 팅겨나감.
                 continue
 
