@@ -20,7 +20,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as bind_socket:
 
                 #msg_from_client = "Hello Server from client"
                 #bytes_to_send = str.encode(msg_from_client)
-
+                print(len(data))
                 
                 send_socket.sendto(TransData.DataShift(msg), addr)
 
